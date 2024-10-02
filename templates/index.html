@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Face Detection App</title>
+</head>
+<body>
+    <h1>Upload Image for Face Detection</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+    
+    {% if output_image %}
+    <h2>Detected Faces</h2>
+    <img src="{{ output_image }}" alt="Detected Faces">
+    {% endif %}
+</body>
+</html>
